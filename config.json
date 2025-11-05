@@ -1,0 +1,12 @@
+{
+  "boardTitle": "Midlife Stockman Bingo!",
+  "freeTileName": "SEAN",
+  "headerImage": "", 
+  "colors": {
+    "bg": "#0f1724",
+    "card": "#0b1220",
+    "accent": "#ffca28",
+    "marked": "#1f8a70",
+    "text": "#e6eef8"
+  }
+}

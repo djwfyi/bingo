@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bingo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Bingo!</h1>
+    <div class="controls">
+      <button id="newBoard">New Board</button>
+      <button id="shuffle">Shuffle Words</button>
+      <button id="exportPdf">Export PDF</button>
+      <button id="clearSaved">Clear Saved</button>
+    </div>
+
+    <div id="board" class="board" aria-label="Bingo board"></div>
+  </main>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="bingoBox">
+      <h2>BINGO!</h2>
+      <p>You got five in a row!</p>
+      <button id="closeOverlay">Close</button>
+    </div>
+    <div class="confetti"></div>
+  </div>
+
+  <!-- Prefer local vendor copies in vendor/ for offline use; fall back to CDN if not present -->
+  <script src="vendor/html2canvas.min.js"></script>
+  <script src="vendor/jspdf.umd.min.js"></script>
+  <script>
+    // If local vendor files are missing (or failed to load), fall back to CDN.
+    (function(){
+      function loadScript(src){
+        var s = document.createElement('script'); s.src = src; s.async = false; document.head.appendChild(s);
+      }
+      // html2canvas exposes window.html2canvas
+      if(typeof window.html2canvas === 'undefined'){
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js');
+      }
+      // jspdf sets window.jspdf
+      if(typeof window.jspdf === 'undefined'){
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js');
+      }
+    })();
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
